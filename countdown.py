@@ -101,8 +101,10 @@ def draw_chart(ax):
     ax.set_xticks(tick_pos)
     ax.set_xticklabels(tick_labels, fontsize=12, ha='center')
     ax.set_yticks([])
+    remaining = sum(1 for d in days if d > today and d.weekday() in (0, 2))
     ax.set_title(
-        f'Countdown  |  May – September 2026    (today: {today.strftime("%d %b %Y")})',
+        f'Countdown  |  May – September 2026    (today: {today.strftime("%d %b %Y")})    '
+        f'Remaining filled days: {remaining}',
         fontsize=13, pad=12
     )
 
