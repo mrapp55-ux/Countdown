@@ -103,10 +103,12 @@ def draw_chart(ax):
     ax.set_yticks([])
     remaining = sum(1 for d in days if d > today and d.weekday() in (0, 2))
     ax.set_title(
-        f'Countdown  |  May – September 2026    (today: {today.strftime("%d %b %Y")})    '
-        f'Remaining filled days: {remaining}',
+        f'Countdown  |  May – September 2026    (today: {today.strftime("%d %b %Y")})',
         fontsize=13, pad=12
     )
+    ax.text(0.98, 1.04, f'Remaining days: {remaining}',
+            transform=ax.transAxes, fontsize=13, fontweight='bold',
+            ha='right', va='bottom')
 
     for spine in ('top', 'right', 'left'):
         ax.spines[spine].set_visible(False)
